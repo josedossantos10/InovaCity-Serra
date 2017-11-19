@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InovaCity_Serra.Views.Feed">
+    <ContentPage.Content>
+        <Grid ColumnSpacing="1" RowSpacing="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+                <!--<RowDefinition Height="2.5*"/>-->
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Column="0" Source="Recursos/logo.png" Scale="1" AnchorY="0.1" AnchorX="0.01"/>
+                <Image Grid.Column="1" Source="Recursos/novo.png" Scale="0.5"   HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CriarPublicacaoCommand}" />
+                    </Image.GestureRecognizers>
+                </Image >
+                <Image Grid.Column="2" Source="Recursos/logout.png" Scale="0.5"  HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LogarCommand}" />
+                    </Image.GestureRecognizers>
+                </Image >
+            </Grid>
+            <!--<Image Source="Recursos/logo.png" Scale="0.5" AnchorX="0.01"  />
+            <Button Text="Logar" Clicked="Button_Clicked"/>-->
+
+            <ListView Grid.Row="1" ItemsSource="{Binding Publicacoes}" RowHeight="180" Margin="5" SeparatorColor="Black" SelectedItem="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="*"/>
+                                    <!--<RowDefinition Height="2.5*"/>-->
+                                </Grid.RowDefinitions>
+
+                                <Image Source="Recursos/foto01.jpg" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Aspect="AspectFill" />
+
+                                <Image Source="Recursos/like.png" Grid.Row="1" Grid.Column="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ApoioPublicacaoCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image >
+
+                                <Image Source="Recursos/dislike.png" Grid.Row="1" Grid.Column="1">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding NaoApoioPublicacaoCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image >
+
+                                <Image Source="Recursos/share.png" Grid.Row="1" Grid.Column="4"  >
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding CompartilharPublicacaoCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image >
+                                <!--<Button Grid.Row="1" Grid.Column="0" Text="Eu Apoio"  BorderColor="Transparent"/>
+                                <Button Grid.Row="1" Grid.Column="1" Text="Não Apoio"  BorderColor="Transparent"  />
+                                <Button Grid.Row="1" Grid.Column="2" Text="Compartilhar"  BorderColor="Transparent" />-->
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

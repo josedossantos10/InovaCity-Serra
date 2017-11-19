@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InovaCity_Serra.Views.Publicacao"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             Title="Criar Publicação">
+
+    <ContentPage.Content>
+        <StackLayout Padding="20" >
+                <Image Source="Recursos/logo.png" Scale="0.4" AnchorY="0.1" AnchorX="0.01"/>
+                <!--<Image Source="Recursos/btnLogar.png" Scale="0.3"  AnchorY="0.25" AnchorX="0.05">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LogarCommand}" />
+                </Image.GestureRecognizers>
+            </Image >-->
+         
+
+            <Label Text="Descrição:" />
+            <Editor x:Name="DD"    HeightRequest="100" Keyboard="Chat"/>
+            <!--<Editor Text="{Binding Descricao}"    HeightRequest="100" Keyboard="Chat"/>-->
+           
+            <Label Text="Local:" />
+            <maps:Map x:Name="Mapa" HeightRequest="80"/>
+
+
+            <Button Text="Adicionar Fotos"/>
+            <Button Text="Publicar" HorizontalOptions="End" Command="{Binding PublicarCommand}" />
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

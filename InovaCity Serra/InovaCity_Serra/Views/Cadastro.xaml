@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InovaCity_Serra.Views.Cadastro"
+             Title="Cadastre-se!">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20">
+                <!--<Image VerticalOptions="Start" HorizontalOptions="Center" Source="Recursos/logo.png" AnchorY="0.1" Scale="0.2" />-->
+                <Label Text="Cadastre-se para fazer a diferença na sua cidade!" FontSize="20" FontAttributes="Italic" TextColor="Black" 
+              />
+
+                <Entry Text="{Binding Usuario.Nome}" Placeholder="Nome completo"/>
+                <Entry Text="{Binding Usuario.Email}" Placeholder="E-mail" Keyboard="Email"></Entry>
+                <Entry Text="{Binding Usuario.Celular}" Placeholder="Número de celular" Keyboard="Telephone" />
+                <Entry Text="{Binding Usuario.Senha}" Placeholder="Digite uma senha" IsPassword="True"/>
+                <Entry Text="{Binding Usuario.Cpf}" Placeholder="Digite o seu CPF" Keyboard="Numeric"/>
+
+                <Picker Title="Informe seu sexo" ItemsSource="{Binding Sexos}" SelectedItem="{Binding Usuario.Sexo}"/>
+                <Label Text="Data de Nascimento"/>
+                <DatePicker Date="{Binding Usuario.DataNascimento}"></DatePicker>
+
+                <Entry Text="{Binding Usuario.Rua}" Placeholder="Rua"/>
+                <Entry Text="{Binding Usuario.Numero}" Placeholder="Número da casa (Ex: 3A)"/>
+                <Entry Text="{Binding Usuario.Cidade}" Placeholder="Cidade"/>
+                <Picker Title="Selecione o seu Estado" ItemsSource="{Binding Estados}" SelectedItem="{Binding Usuario.Estado}"/>
+               
+
+                <Button Text="Salvar" Command="{Binding SalvarCommand}"/>
+                <!--<button text="entrar com o facebook" command="{binding entrarfacebookcommand}" backgroundcolor="blue" textcolor="white"/>-->
+                <Label Text="{Binding Saudacao}" HorizontalOptions="Center" FontSize="16" TextColor="DodgerBlue" FontAttributes="Bold"/>
+                <!--<Button Text="      " Image="Recursos/loginFace.png"  BorderColor="Transparent" />-->
+                <ListView ItemsSource="{Binding Lista}"></ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
